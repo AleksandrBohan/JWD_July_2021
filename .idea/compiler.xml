@@ -9,5 +9,6 @@
         <module name="com.epam.jwd.Task1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>
