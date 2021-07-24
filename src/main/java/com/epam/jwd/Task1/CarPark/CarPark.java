@@ -5,6 +5,8 @@ import com.epam.jwd.Task1.Cars.ExecutiveCar;
 import com.epam.jwd.Task1.Cars.MediumCar;
 import com.epam.jwd.Task1.Cars.SmallCar;
 
+import java.util.Scanner;
+
 public class CarPark {
 
     private int moneyAmount;
@@ -49,10 +51,16 @@ public class CarPark {
             System.out.println(cars[i].getCarName());
         }
 
-        System.out.println("\nMax speed of cars: \n");
+        System.out.println("\nEngine volume of cars: \n");
 
         for (int i = 0; i < cars.length; i++){
-            System.out.println(cars[i].getMaxSpeed());
+            System.out.println(cars[i].getEngineVolume());
+        }
+
+        System.out.println("Car power: ");
+
+        for (int i = 0; i < cars.length; i++){
+            System.out.println(cars[i].getPower());
         }
 
         System.out.println("\nFuel consumption after sorting: \n");
@@ -68,19 +76,46 @@ public class CarPark {
         }
     }
 
-    void findFastCar(Car[] cars) {
+    void findCar(Car[] cars) {
+       int counter = 0;
+        System.out.println("Input engine volume: ");
+        Scanner scanner = new Scanner(System.in);
+        double volume = Double.parseDouble(scanner.next());
+
+        System.out.println("Input power: ");
+        Scanner secondScaner = new Scanner(System.in);
+        double power = secondScaner.nextDouble();
+
+        for (int i = 0; i < cars.length; i++) {
+            if ((cars[i].getEngineVolume() == volume)
+                   && cars[i].getPower() == power){
+                System.out.println("Car was found: ");
+                System.out.println("\n" + cars[i].getCarName());
+                System.out.println(cars[i].getFuelConsumption());
+                System.out.println(cars[i].getCost());
+                System.out.println(cars[i].getEngineVolume());
+                System.out.println(cars[i].getPower());
+
+                counter++;
+            }
+        }
+
+        if (counter == 0){
+            System.out.println("Car wasn't found!");
+        }
 
     }
 
+
     public static void main(String[] args) {
         CarPark carPark = new CarPark();
-        carPark.fuelConsumptionSort(new Car[]{new ExecutiveCar("Volkswagen", 18, 12.800, 170),
-        new MediumCar("Renault", 15, 10.700, 165),
-        new SmallCar("Lada", 17, 8.500, 150)});
+        carPark.fuelConsumptionSort(new Car[]{new ExecutiveCar("Volkswagen", 18, 12.800, 2.0, 135),
+        new MediumCar("Renault", 15, 10.700, 1.8, 120),
+        new SmallCar("Lada", 17, 8.500, 4.4, 170)});
 
-        carPark.findFastCar(new Car[]{new ExecutiveCar("Volkswagen", 18, 12.800, 7000),
-                new MediumCar("Renault", 15, 10.700, 160),
-                new SmallCar("Lada", 17, 8.500, 1500)});
+        carPark.findCar(new Car[]{new ExecutiveCar("Volkswagen", 18, 12.800, 2.0, 135),
+                new MediumCar("Renault", 15, 10.700, 1.8, 120),
+                new SmallCar("Lada", 17, 8.500, 4.4, 170)});
     }
 
     }
