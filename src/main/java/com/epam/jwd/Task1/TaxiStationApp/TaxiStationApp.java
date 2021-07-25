@@ -1,6 +1,5 @@
 package com.epam.jwd.Task1.TaxiStationApp;
 
-
 import com.epam.jwd.Task1.CarSorting.CarSorting;
 import com.epam.jwd.Task1.Cars.Car;
 import com.epam.jwd.Task1.Cars.ExecutiveCar;
@@ -37,7 +36,7 @@ public class TaxiStationApp {
         mediumCars[0] = new MediumCar("Volkswagen Golf 5", 5, 4900, 1.6,
                 116, "benzine");
 
-        mediumCars[1] = new MediumCar("Honda Civic",6, 5500, 1.5,
+        mediumCars[1] = new MediumCar("Honda Civic", 6, 5500, 1.5,
                 182, "benzine");
 
         mediumCars[2] = new MediumCar("Ford Focus", 8, 6000, 1.5,
@@ -57,7 +56,7 @@ public class TaxiStationApp {
 
     }
 
-    void choose(int typeNumber, Car[] cars) {
+    void chooseCar(int typeNumber, Car[] cars) {
         if (typeNumber == 1) {
             carList.add(cars[0]);
         }
@@ -72,7 +71,7 @@ public class TaxiStationApp {
 
     }
 
-    void chooseSmall(List<Car> carList) {
+    void addSmallCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Renault Logan");
@@ -83,10 +82,10 @@ public class TaxiStationApp {
         int smallNumber = smallScanner.nextInt();
 
         createSmallCars();
-        choose(smallNumber, smallCars);
+        chooseCar(smallNumber, smallCars);
     }
 
-    void chooseMedium(List<Car> carList) {
+    void addMediumCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Volkswagen Golf 5");
@@ -97,10 +96,10 @@ public class TaxiStationApp {
         int mediumNumber = mediumScanner.nextInt();
 
         createMediumCars();
-        choose(mediumNumber, mediumCars);
+        chooseCar(mediumNumber, mediumCars);
     }
 
-    void chooseExecutive(List<Car> carList) {
+    void addExecutiveCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Audi A6");
@@ -111,17 +110,17 @@ public class TaxiStationApp {
         int executiveNumber = executiveScanner.nextInt();
 
         createExecutiveCars();
-        choose(executiveNumber, executiveCars);
+        chooseCar(executiveNumber, executiveCars);
     }
 
-    void chooseCarCount() {
+    void addCarCount() {
         System.out.println("Select the number of cars: ");
 
         Scanner scanner = new Scanner(System.in);
         int carCount = scanner.nextInt();
 
         for (int i = 0; i < carCount; i++) {
-            chooseCar(carList);
+            addCarType(carList);
         }
 
         new CarSorting().getCost(carList);
@@ -132,7 +131,7 @@ public class TaxiStationApp {
     }
 
 
-    void chooseCar(List<Car> carList) {
+    void addCarType(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose type of car:\n 1 - Executive car");
@@ -144,15 +143,15 @@ public class TaxiStationApp {
         int typeNumber = scanner.nextInt();
 
         if (typeNumber == 1) {
-            chooseExecutive(carList);
+            addExecutiveCar(carList);
         }
 
-        if (typeNumber == 2){
-            chooseMedium(carList);
+        if (typeNumber == 2) {
+            addMediumCar(carList);
         }
 
-        if (typeNumber == 3){
-            chooseSmall(carList);
+        if (typeNumber == 3) {
+            addSmallCar(carList);
         }
 
     }
@@ -172,7 +171,7 @@ public class TaxiStationApp {
 
     public static void main(String[] args) {
         TaxiStationApp taxiStation = new TaxiStationApp();
-        taxiStation.chooseCarCount();
+        taxiStation.addCarCount();
     }
 }
 

@@ -16,14 +16,15 @@ public class Car {
 
     public Car(String carName, int fuelConsumption, int carСost,
                double engineVolume, double power, String typeOfPatrol) {
+
         this.carName = carName;
         this.fuelConsumption = fuelConsumption;
         this.carСost = carСost;
         this.engineVolume = engineVolume;
         this.power = power;
         this.typeOfPatrol = typeOfPatrol;
-    }
 
+    }
 
     public String getCarName() {
         return carName;
@@ -50,5 +51,6 @@ public class Car {
     }
 
 }
+
 
 

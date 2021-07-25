@@ -2,12 +2,16 @@ package com.epam.jwd.Task1.CarSorting;
 
 import com.epam.jwd.Task1.Cars.Car;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 public class CarSorting {
 
     private int moneyAmount;
+
     private List<Car> cars;
 
     public double getCost(List<Car> cars) {
@@ -15,21 +19,24 @@ public class CarSorting {
 
         Iterator<Car> iter = cars.iterator();
 
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
             moneyAmount += iter.next().getCost();
         }
 
         System.out.println("Sum of cars prices: " + moneyAmount);
+
         return moneyAmount;
+
     }
 
     public void sortByFuel(List<Car> cars) {
         this.cars = cars;
+
         Comparator speedComparator = new PatrolComparator();
         Collections.sort(cars, speedComparator);
     }
 
-   public void findCar(List<Car> cars) {
+    public void findCar(List<Car> cars) {
         int counter = 0;
         this.cars = cars;
 
@@ -43,7 +50,7 @@ public class CarSorting {
 
         for (int i = 0; i < cars.size(); i++) {
             if ((cars.get(i).getEngineVolume() == volume)
-                    && cars.get(i).getPower() == power){
+                    && cars.get(i).getPower() == power) {
                 System.out.println("Car was found: ");
                 System.out.println("Car name: " + cars.get(i).getCarName());
                 System.out.println("Car power: " + cars.get(i).getPower());
@@ -53,14 +60,17 @@ public class CarSorting {
                 System.out.println("Type of patrol: " + cars.get(i).getTypeOfPatrol());
 
                 counter++;
+
             }
+
         }
 
-        if (counter == 0){
+        if (counter == 0) {
             System.out.println("Car wasn't found!");
         }
 
     }
 
 }
+
 
