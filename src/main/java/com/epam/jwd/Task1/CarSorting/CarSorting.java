@@ -1,19 +1,14 @@
-package com.epam.jwd.Task1.CarPark;
+package com.epam.jwd.Task1.CarSorting;
 
-import com.epam.jwd.Task1.CarSorting.PatrolComparator;
 import com.epam.jwd.Task1.Cars.Car;
-import com.epam.jwd.Task1.Cars.ExecutiveCar;
-import com.epam.jwd.Task1.Cars.MediumCar;
-import com.epam.jwd.Task1.Cars.SmallCar;
 
 import java.util.*;
 import java.util.Iterator;
 
-public class CarPark {
-
+public class CarSorting {
     private int moneyAmount;
 
-    private Car [] carsArray;
+    private Car[] carsArray;
 
     private List<Car> cars;
 
@@ -22,11 +17,11 @@ public class CarPark {
 
         Iterator<Car> iter = cars.iterator();
 
-       while(iter.hasNext()) {
-           moneyAmount += iter.next().getCost();
-       }
-       System.out.println(moneyAmount);
-           return moneyAmount;
+        while(iter.hasNext()) {
+            moneyAmount += iter.next().getCost();
+        }
+        System.out.println(moneyAmount);
+        return moneyAmount;
     }
 
     public void sortByFuel(List<Car> cars) {
@@ -36,24 +31,24 @@ public class CarPark {
     }
 
     void findCar(Car[] carsArray) {
-       int counter = 0;
+        int counter = 0;
 
-       this.carsArray = carsArray;
+        this.carsArray = carsArray;
 
-       System.out.println("Input engine volume: ");
+        System.out.println("Input engine volume: ");
 
-       Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-       double volume = Double.parseDouble(scanner.next());
+        double volume = Double.parseDouble(scanner.next());
 
-       System.out.println("Input power: ");
+        System.out.println("Input power: ");
 
         Scanner secondScaner = new Scanner(System.in);
         double power = secondScaner.nextDouble();
 
         for (int i = 0; i < carsArray.length; i++) {
             if ((carsArray[i].getEngineVolume() == volume)
-                   && carsArray[i].getPower() == power){
+                    && carsArray[i].getPower() == power){
                 System.out.println("Car was found: ");
                 System.out.println("\n" + carsArray[i].getCarName());
                 System.out.println(carsArray[i].getFuelConsumption());

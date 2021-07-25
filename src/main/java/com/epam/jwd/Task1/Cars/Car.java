@@ -1,11 +1,5 @@
 package com.epam.jwd.Task1.Cars;
 
-/**
- * Класс представляет собой сущность машины для автопарка
- *
- * @version   1.10 04 Oct 1996
- * @author    Александр Бохан
- */
 public class Car {
 
     private String carName;
@@ -21,7 +15,7 @@ public class Car {
     private String typeOfPatrol;
 
     public Car(String carName, int fuelConsumption, int carСost,
-               double engineVolume, double power, String typeOfPatrol){
+               double engineVolume, double power, String typeOfPatrol) {
         this.carName = carName;
         this.fuelConsumption = fuelConsumption;
         this.carСost = carСost;
@@ -31,43 +25,30 @@ public class Car {
     }
 
 
-    public String getCarName() { return carName; }
+    public String getCarName() {
+        return carName;
+    }
 
-    public int getFuelConsumption(){
+    public int getFuelConsumption() {
         return fuelConsumption;
     }
 
-    public int getCost(){
+    public int getCost() {
         return carСost;
     }
 
-    public double getEngineVolume() { return engineVolume; }
-
-    public double getPower() { return  power; }
-
-    public String getTypeOfPatrol() { return typeOfPatrol; }
-
-    public void setCarName(String carName) {
-        this.carName = carName;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public void setFuelConsumption(int fuelConsumption) {
-        this.fuelConsumption = fuelConsumption;
+    public double getPower() {
+        return power;
     }
 
-    public void setCarСost(int carСost) {
-        this.carСost = carСost;
+    public String getTypeOfPatrol() {
+        return typeOfPatrol;
     }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
-
-    public void setPower(double power) {
-        this.power = power;
-    }
-
-    public void setTypeOfPatrol(String typeOfPatrol) {
-        this.typeOfPatrol = typeOfPatrol;
-    }
 }
+
+
