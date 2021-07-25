@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class TaxiStationApp {
 
     private List<Car> carList = new ArrayList<>();
@@ -25,8 +24,10 @@ public class TaxiStationApp {
     void createExecutiveCars() {
         executiveCars[0] = new ExecutiveCar("Audi A6", 8, 8000, 2.7,
                 180, "diesel");
+
         executiveCars[1] = new ExecutiveCar("Volvo S80", 7, 11500, 2.0,
                 163, "benzine");
+
         executiveCars[2] = new ExecutiveCar("Honda Legend", 9, 8300, 3.5,
                 314, "benzine");
 
@@ -35,19 +36,25 @@ public class TaxiStationApp {
     void createMediumCars() {
         mediumCars[0] = new MediumCar("Volkswagen Golf 5", 5, 4900, 1.6,
                 116, "benzine");
+
         mediumCars[1] = new MediumCar("Honda Civic",6, 5500, 1.5,
                 182, "benzine");
+
         mediumCars[2] = new MediumCar("Ford Focus", 8, 6000, 1.5,
                 150, "benzine");
+
     }
 
     void createSmallCars() {
         smallCars[0] = new SmallCar("Renault Logan", 10, 5900, 1.6,
                 102, "benzine");
+
         smallCars[1] = new SmallCar("Citroen C3", 8, 7700, 1.6,
                 120, "diesel");
+
         smallCars[2] = new SmallCar("Kia Rio", 6, 6100, 1.4,
                 109, "benzine");
+
     }
 
     void choose(int typeNumber, Car[] cars) {
@@ -73,7 +80,6 @@ public class TaxiStationApp {
         System.out.println(" 3 - Kia Rio");
 
         Scanner smallScanner = new Scanner(System.in);
-
         int smallNumber = smallScanner.nextInt();
 
         createSmallCars();
@@ -88,7 +94,6 @@ public class TaxiStationApp {
         System.out.println(" 3 - Ford Focus");
 
         Scanner mediumScanner = new Scanner(System.in);
-
         int mediumNumber = mediumScanner.nextInt();
 
         createMediumCars();
@@ -103,7 +108,6 @@ public class TaxiStationApp {
         System.out.println(" 3 - Honda Legend");
 
         Scanner executiveScanner = new Scanner(System.in);
-
         int executiveNumber = executiveScanner.nextInt();
 
         createExecutiveCars();
@@ -111,19 +115,19 @@ public class TaxiStationApp {
     }
 
     void chooseCarCount() {
-
-        System.out.println("Select the number of cars");
+        System.out.println("Select the number of cars: ");
 
         Scanner scanner = new Scanner(System.in);
-
         int carCount = scanner.nextInt();
 
         for (int i = 0; i < carCount; i++) {
             chooseCar(carList);
         }
+
         new CarSorting().getCost(carList);
         new CarSorting().sortByFuel(carList);
         new CarSorting().findCar(carList);
+
         printTaxiStation();
     }
 
@@ -142,23 +146,26 @@ public class TaxiStationApp {
         if (typeNumber == 1) {
             chooseExecutive(carList);
         }
+
         if (typeNumber == 2){
             chooseMedium(carList);
         }
+
         if (typeNumber == 3){
             chooseSmall(carList);
         }
+
     }
 
     void printTaxiStation() {
         for (int i = 0; i < carList.size(); i++) {
-            System.out.println();
-            System.out.println(carList.get(i).getCarName());
-            System.out.println(carList.get(i).getPower());
-            System.out.println(carList.get(i).getEngineVolume());
-            System.out.println(carList.get(i).getCost());
-            System.out.println(carList.get(i).getFuelConsumption());
-            System.out.println(carList.get(i).getTypeOfPatrol());
+
+            System.out.println("\nCar name: " + carList.get(i).getCarName());
+            System.out.println("Car power: " + carList.get(i).getPower());
+            System.out.println("Engine volume of car: " + carList.get(i).getEngineVolume());
+            System.out.println("Car cost: " + carList.get(i).getCost());
+            System.out.println("Fuel consumption of car: " + carList.get(i).getFuelConsumption());
+            System.out.println("Type of patrol: " + carList.get(i).getTypeOfPatrol());
             System.out.println();
         }
     }
@@ -166,7 +173,6 @@ public class TaxiStationApp {
     public static void main(String[] args) {
         TaxiStationApp taxiStation = new TaxiStationApp();
         taxiStation.chooseCarCount();
-
     }
 }
 
