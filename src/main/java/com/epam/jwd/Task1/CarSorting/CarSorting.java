@@ -6,9 +6,8 @@ import java.util.*;
 import java.util.Iterator;
 
 public class CarSorting {
-    private int moneyAmount;
 
-    private Car[] carsArray;
+    private int moneyAmount;
 
     private List<Car> cars;
 
@@ -20,7 +19,7 @@ public class CarSorting {
         while(iter.hasNext()) {
             moneyAmount += iter.next().getCost();
         }
-        System.out.println(moneyAmount);
+        System.out.println("Sum of cars prices: " + moneyAmount);
         return moneyAmount;
     }
 
@@ -30,10 +29,10 @@ public class CarSorting {
         Collections.sort(cars, speedComparator);
     }
 
-    void findCar(Car[] carsArray) {
+   public void findCar(List<Car> cars) {
         int counter = 0;
 
-        this.carsArray = carsArray;
+        this.cars = cars;
 
         System.out.println("Input engine volume: ");
 
@@ -46,15 +45,16 @@ public class CarSorting {
         Scanner secondScaner = new Scanner(System.in);
         double power = secondScaner.nextDouble();
 
-        for (int i = 0; i < carsArray.length; i++) {
-            if ((carsArray[i].getEngineVolume() == volume)
-                    && carsArray[i].getPower() == power){
+        for (int i = 0; i < cars.size(); i++) {
+            if ((cars.get(i).getEngineVolume() == volume)
+                    && cars.get(i).getPower() == power){
                 System.out.println("Car was found: ");
-                System.out.println("\n" + carsArray[i].getCarName());
-                System.out.println(carsArray[i].getFuelConsumption());
-                System.out.println(carsArray[i].getCost());
-                System.out.println(carsArray[i].getEngineVolume());
-                System.out.println(carsArray[i].getPower());
+                System.out.println("\n" + cars.get(i).getCarName());
+                System.out.println(cars.get(i).getFuelConsumption());
+                System.out.println(cars.get(i).getCost());
+                System.out.println(cars.get(i).getEngineVolume());
+                System.out.println(cars.get(i).getPower());
+                System.out.println(cars.get(i).getTypeOfPatrol());
 
                 counter++;
             }

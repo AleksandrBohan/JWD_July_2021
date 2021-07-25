@@ -16,82 +16,72 @@ public class TaxiStationApp {
 
     private List<Car> carList = new ArrayList<>();
 
-    private ExecutiveCar firstExecutiveCar;
+    private Car[] executiveCars = new Car[3];
 
-    private ExecutiveCar secondExecutiveCar;
+    private Car[] mediumCars = new Car[3];
 
-    private ExecutiveCar thirdExecutiveCar;
+    private Car[] smallCars = new Car[3];
 
-    private MediumCar firstMediumCar;
-
-    private MediumCar secondMediumCar;
-
-    private MediumCar thirdMediumCar;
-
-    private SmallCar firstSmallCar;
-
-    private SmallCar secondSmallCar;
-
-    private SmallCar thirdSmallCar;
-
-    void creatExecutiveCars() {
-        firstExecutiveCar = new ExecutiveCar("Audi A6", 8, 8000, 2.7,
+    void createExecutiveCars() {
+        executiveCars[0] = new ExecutiveCar("Audi A6", 8, 8000, 2.7,
                 180, "diesel");
-        secondExecutiveCar = new ExecutiveCar("Volvo S80", 7, 11500, 2.0,
+        executiveCars[1] = new ExecutiveCar("Volvo S80", 7, 11500, 2.0,
                 163, "benzine");
-        thirdExecutiveCar = new ExecutiveCar("Honda Legend", 9, 8300, 3.5,
+        executiveCars[2] = new ExecutiveCar("Honda Legend", 9, 8300, 3.5,
                 314, "benzine");
 
     }
 
     void createMediumCars() {
-        firstMediumCar = new MediumCar("Volkswagen Golf 5", 5, 4900, 1.6,
+        mediumCars[0] = new MediumCar("Volkswagen Golf 5", 5, 4900, 1.6,
                 116, "benzine");
-        secondMediumCar = new MediumCar("Honda Civic",6, 5500, 1.5,
+        mediumCars[1] = new MediumCar("Honda Civic",6, 5500, 1.5,
                 182, "benzine");
-        thirdMediumCar = new MediumCar("Ford Focus", 8, 6000, 1.5,
+        mediumCars[2] = new MediumCar("Ford Focus", 8, 6000, 1.5,
                 150, "benzine");
     }
 
     void createSmallCars() {
-        firstSmallCar = new SmallCar("Renault Logan", 10, 5900, 1.6,
+        smallCars[0] = new SmallCar("Renault Logan", 10, 5900, 1.6,
                 102, "benzine");
-        secondSmallCar = new SmallCar("Citroen C3", 8, 7700, 1.6,
+        smallCars[1] = new SmallCar("Citroen C3", 8, 7700, 1.6,
                 120, "diesel");
-        thirdSmallCar = new SmallCar(" Kia Rio", 6, 6100, 1.4,
+        smallCars[2] = new SmallCar("Kia Rio", 6, 6100, 1.4,
                 109, "benzine");
     }
 
     void choose(int typeNumber, Car[] cars) {
         if (typeNumber == 1) {
             carList.add(cars[0]);
-
-            System.out.println(carList.get(0).getCarName());
-            System.out.println(carList.get(0).getPower());
-            System.out.println(carList.get(0).getEngineVolume());
-            System.out.println(carList.get(0).getCost());
-            System.out.println(carList.get(0).getFuelConsumption());
-            System.out.println(carList.get(0).getTypeOfPatrol());
         }
 
         if (typeNumber == 2) {
-            carList.add(secondMediumCar);
+            carList.add(cars[1]);
         }
 
         if (typeNumber == 3) {
-            carList.add(thirdMediumCar);
+            carList.add(cars[2]);
         }
 
     }
 
-    void chooseSmall() {
-
-    }
-
-    void chooseMedium() {
+    void chooseSmall(List<Car> carList) {
         this.carList = carList;
 
-        creatExecutiveCars();
+        System.out.println("Choose name of car:\n 1 - Renault Logan");
+        System.out.println(" 2 - Citroen C3");
+        System.out.println(" 3 - Kia Rio");
+
+        Scanner smallScanner = new Scanner(System.in);
+
+        int smallNumber = smallScanner.nextInt();
+
+        createSmallCars();
+        choose(smallNumber, smallCars);
+    }
+
+    void chooseMedium(List<Car> carList) {
+        this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Volkswagen Golf 5");
         System.out.println(" 2 - Honda Civic");
@@ -101,31 +91,12 @@ public class TaxiStationApp {
 
         int mediumNumber = mediumScanner.nextInt();
 
-        if (mediumNumber == 1) {
-            carList.add(firstMediumCar);
-
-            System.out.println(carList.get(0).getCarName());
-            System.out.println(carList.get(0).getPower());
-            System.out.println(carList.get(0).getEngineVolume());
-            System.out.println(carList.get(0).getCost());
-            System.out.println(carList.get(0).getFuelConsumption());
-            System.out.println(carList.get(0).getTypeOfPatrol());
-        }
-
-        if (mediumNumber == 2) {
-            carList.add(secondMediumCar);
-        }
-
-        if (mediumNumber == 3) {
-            carList.add(thirdMediumCar);
-        }
-
+        createMediumCars();
+        choose(mediumNumber, mediumCars);
     }
 
     void chooseExecutive(List<Car> carList) {
         this.carList = carList;
-
-        creatExecutiveCars();
 
         System.out.println("Choose name of car:\n 1 - Audi A6");
         System.out.println(" 2 - Volvo S80");
@@ -135,26 +106,8 @@ public class TaxiStationApp {
 
         int executiveNumber = executiveScanner.nextInt();
 
-        if (executiveNumber == 1) {
-            carList.add(firstExecutiveCar);
-
-            System.out.println(carList.get(0).getCarName());
-            System.out.println(carList.get(0).getPower());
-            System.out.println(carList.get(0).getEngineVolume());
-            System.out.println(carList.get(0).getCost());
-            System.out.println(carList.get(0).getFuelConsumption());
-            System.out.println(carList.get(0).getTypeOfPatrol());
-        }
-
-        if (executiveNumber == 2) {
-            carList.add(secondExecutiveCar);
-        }
-
-        if (executiveNumber == 3) {
-            carList.add(thirdExecutiveCar);
-        }
-
-
+        createExecutiveCars();
+        choose(executiveNumber, executiveCars);
     }
 
     void chooseCarCount() {
@@ -170,6 +123,7 @@ public class TaxiStationApp {
         }
         new CarSorting().getCost(carList);
         new CarSorting().sortByFuel(carList);
+        new CarSorting().findCar(carList);
         printTaxiStation();
     }
 
@@ -177,9 +131,9 @@ public class TaxiStationApp {
     void chooseCar(List<Car> carList) {
         this.carList = carList;
 
-        System.out.println("Choose type of car: \n\t 1 - Executive car");
-        System.out.println("2 - Medium car");
-        System.out.println("3 - Small car");
+        System.out.println("Choose type of car:\n 1 - Executive car");
+        System.out.println(" 2 - Medium car");
+        System.out.println(" 3 - Small car");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -189,12 +143,11 @@ public class TaxiStationApp {
             chooseExecutive(carList);
         }
         if (typeNumber == 2){
-            c
+            chooseMedium(carList);
         }
-    }
-
-    public List<Car> getCarList() {
-        return carList;
+        if (typeNumber == 3){
+            chooseSmall(carList);
+        }
     }
 
     void printTaxiStation() {
