@@ -5,6 +5,7 @@ import com.epam.jwd.Task1.Cars.Car;
 import com.epam.jwd.Task1.Cars.ExecutiveCar;
 import com.epam.jwd.Task1.Cars.MediumCar;
 import com.epam.jwd.Task1.Cars.SmallCar;
+import com.epam.jwd.Task1.Output.CarParameters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,16 +158,8 @@ public class TaxiStationApp {
     }
 
     public void printTaxiStation() {
-        for (int i = 0; i < carList.size(); i++) {
-
-            System.out.println("\nCar name: " + carList.get(i).getCarName());
-            System.out.println("Car power: " + carList.get(i).getPower());
-            System.out.println("Engine volume of car: " + carList.get(i).getEngineVolume());
-            System.out.println("Car cost: " + carList.get(i).getCost());
-            System.out.println("Fuel consumption of car: " + carList.get(i).getFuelConsumption());
-            System.out.println("Type of patrol: " + carList.get(i).getTypeOfPatrol());
-            System.out.println();
-        }
+       for (int i = 0; i < this.carList.size(); i++)
+        CarParameters.outputCarParameters(this.carList);
     }
 
     public static void main(String[] args) {
