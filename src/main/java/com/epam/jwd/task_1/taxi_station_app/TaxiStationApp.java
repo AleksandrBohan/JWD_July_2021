@@ -1,11 +1,10 @@
-package com.epam.jwd.Task1.TaxiStationApp;
+package com.epam.jwd.task_1.taxi_station_app;
 
-import com.epam.jwd.Task1.CarSorting.CarSorting;
-import com.epam.jwd.Task1.Cars.Car;
-import com.epam.jwd.Task1.Cars.ExecutiveCar;
-import com.epam.jwd.Task1.Cars.MediumCar;
-import com.epam.jwd.Task1.Cars.SmallCar;
-import com.epam.jwd.Task1.Output.CarParameters;
+import com.epam.jwd.Task1.Cars.HatchbackCar;
+import com.epam.jwd.task_1.car.SedanCar;
+import com.epam.jwd.task_1.car_sorting.CarSorting;
+import com.epam.jwd.task_1.car.Car;
+import com.epam.jwd.task_1.Car.MinivanCar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,45 +14,45 @@ public class TaxiStationApp {
 
     private List<Car> carList = new ArrayList<>();
 
-    private Car[] executiveCars = new Car[3];
+    private Car [] hatchbackCars = new HatchbackCar[3];
 
-    private Car[] mediumCars = new Car[3];
+    private Car[] minivanCars = new MinivanCar[3];
 
-    private Car[] smallCars = new Car[3];
+    private Car[] sedanCars = new SedanCar[3];
 
-   public void createExecutiveCars() {
-        executiveCars[0] = new ExecutiveCar("Audi A6", 8, 8000, 2.7,
-                180, "diesel");
+    public void createExecutiveCars() {
+       hatchbackCars[0] = new HatchbackCar("Audi A3", 8, 8000, 2.7,
+                180, "diesel", "B25109152");
 
-        executiveCars[1] = new ExecutiveCar("Volvo S80", 7, 11500, 2.0,
-                163, "benzine");
+       hatchbackCars[1] = new HatchbackCar("Volvo V40", 7, 11500, 2.0,
+                163, "benzine", "HY96222407");
 
-        executiveCars[2] = new ExecutiveCar("Honda Legend", 9, 8300, 3.5,
-                314, "benzine");
-
-    }
-
-    public void createMediumCars() {
-        mediumCars[0] = new MediumCar("Volkswagen Golf 5", 5, 4900, 1.6,
-                116, "benzine");
-
-        mediumCars[1] = new MediumCar("Honda Civic", 6, 5500, 1.5,
-                182, "benzine");
-
-        mediumCars[2] = new MediumCar("Ford Focus", 8, 6000, 1.5,
-                150, "benzine");
+       hatchbackCars[2] = new HatchbackCar("Honda Legend", 9, 8300, 3.5,
+                314, "benzine","JHMEJ93300S037290");
 
     }
 
-    public void createSmallCars() {
-        smallCars[0] = new SmallCar("Renault Logan", 10, 5900, 1.6,
-                102, "benzine");
+    public void createMinivenCars() {
+        minivanCars[0] = new MinivanCar("Volkswagen Golf 5", 5, 4900, 1.6,
+                116, "benzine", 3);
 
-        smallCars[1] = new SmallCar("Citroen C3", 8, 7700, 1.6,
-                120, "diesel");
+        minivanCars[1] = new MinivanCar("Honda Civic", 6, 5500, 1.5,
+                182, "benzine",4);
 
-        smallCars[2] = new SmallCar("Kia Rio", 6, 6100, 1.4,
-                109, "benzine");
+        minivanCars[2] = new MinivanCar("Ford Focus", 8, 6000, 1.5,
+                150, "benzine",3);
+
+    }
+
+    public void createSedanCars() {
+        sedanCars[0] = new SedanCar("Renault Logan", 10, 5900, 1.6,
+                102, "benzine", "FK1245PO");
+
+        sedanCars[1] = new SedanCar("Citroen C3", 8, 7700, 1.6,
+                120, "diesel", "PK765467LJ09");
+
+        sedanCars[2] = new SedanCar("Kia Rio", 6, 6100, 1.4,
+                109, "benzine", "QW865490i9U");
 
     }
 
@@ -72,7 +71,7 @@ public class TaxiStationApp {
 
     }
 
-    public void addSmallCar(List<Car> carList) {
+    public void addSedanCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Renault Logan");
@@ -80,13 +79,13 @@ public class TaxiStationApp {
         System.out.println(" 3 - Kia Rio");
 
         Scanner smallScanner = new Scanner(System.in);
-        int smallNumber = smallScanner.nextInt();
+        int sedanNumber = smallScanner.nextInt();
 
-        createSmallCars();
-        chooseCar(smallNumber, smallCars);
+       // createSmallCars();
+        chooseCar(sedanNumber, sedanCars);
     }
 
-    public void addMediumCar(List<Car> carList) {
+    public void addMinivanCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Volkswagen Golf 5");
@@ -94,13 +93,13 @@ public class TaxiStationApp {
         System.out.println(" 3 - Ford Focus");
 
         Scanner mediumScanner = new Scanner(System.in);
-        int mediumNumber = mediumScanner.nextInt();
+        int minivanNumber = mediumScanner.nextInt();
 
-        createMediumCars();
-        chooseCar(mediumNumber, mediumCars);
+        createMinivenCars();
+        chooseCar(minivanNumber, minivanCars);
     }
 
-    public void addExecutiveCar(List<Car> carList) {
+    public void addHatchbackCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Audi A6");
@@ -108,10 +107,10 @@ public class TaxiStationApp {
         System.out.println(" 3 - Honda Legend");
 
         Scanner executiveScanner = new Scanner(System.in);
-        int executiveNumber = executiveScanner.nextInt();
+        int HatchbackNumber = executiveScanner.nextInt();
 
         createExecutiveCars();
-        chooseCar(executiveNumber, executiveCars);
+        chooseCar(HatchbackNumber, hatchbackCars);
     }
 
     public void addCarCount() {
@@ -159,7 +158,7 @@ public class TaxiStationApp {
 
     public void printTaxiStation() {
        for (int i = 0; i < this.carList.size(); i++)
-        CarParameters.outputCarParameters(this.carList);
+
     }
 
     public static void main(String[] args) {

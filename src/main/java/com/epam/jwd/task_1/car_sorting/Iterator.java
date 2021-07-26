@@ -1,4 +1,4 @@
-package com.epam.jwd.Task1.CarSorting;
+package com.epam.jwd.task_1.car_sorting;
 
 public interface Iterator<E> {
 

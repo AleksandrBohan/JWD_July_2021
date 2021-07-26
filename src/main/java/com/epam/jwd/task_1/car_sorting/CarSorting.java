@@ -1,6 +1,6 @@
-package com.epam.jwd.Task1.CarSorting;
+package com.epam.jwd.task_1.car_sorting;
 
-import com.epam.jwd.Task1.Car.Car;
+import com.epam.jwd.task_1.car.Car;
 
 import java.util.Scanner;
 import java.util.Collections;

@@ -1,4 +1,6 @@
-package com.epam.jwd.Task1.Cars;
+package com.epam.jwd.task_1.Car;
+
+import com.epam.jwd.task_1.car.Car;
 
 import java.util.Objects;
 

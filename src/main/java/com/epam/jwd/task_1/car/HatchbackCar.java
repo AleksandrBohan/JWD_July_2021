@@ -1,5 +1,7 @@
 package com.epam.jwd.Task1.Cars;
 
+import com.epam.jwd.task_1.car.Car;
+
 import java.util.Objects;
 
 public class HatchbackCar extends Car {
