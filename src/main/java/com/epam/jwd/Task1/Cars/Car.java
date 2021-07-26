@@ -76,18 +76,17 @@ public class Car {
         this.typeOfPatrol = typeOfPatrol;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Car)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return fuelConsumption == car.fuelConsumption &&
                 carСost == car.carСost &&
                 Double.compare(car.engineVolume, engineVolume) == 0 &&
                 Double.compare(car.power, power) == 0 &&
-                carName.equals(car.carName) &&
-                typeOfPatrol.equals(car.typeOfPatrol);
+                Objects.equals(carName, car.carName) &&
+                Objects.equals(typeOfPatrol, car.typeOfPatrol);
     }
 
     @Override

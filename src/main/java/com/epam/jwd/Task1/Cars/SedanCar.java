@@ -4,35 +4,44 @@ import java.util.Objects;
 
 public class SedanCar extends Car {
 
-    String trank;
+    private String specialTrank;
 
     public SedanCar(String carName, int fuelConsumption, int carСost, double engineVolume, double power,
-                        String typeOfPatrol, String trank) {
+                        String typeOfPatrol, String specialTrank) {
+
         super(carName, fuelConsumption, carСost, engineVolume, power, typeOfPatrol);
-        this.trank = trank;
+
+        setTrank(specialTrank);
     }
 
     public String getTrank() {
-        return trank;
+        return specialTrank;
     }
 
     public void setTrank(String trank) {
-        this.trank = trank;
+        this.specialTrank = specialTrank;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         SedanCar sedanCar = (SedanCar) o;
-        return trank.equals(sedanCar.trank);
+        return Objects.equals(specialTrank, sedanCar.specialTrank);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(trank);
+        return Objects.hash(super.hashCode(), specialTrank);
     }
 
+    @Override
+    public String toString() {
+        return "SedanCar{" +
+                "specialTrank='" + specialTrank + '\'' +
+                '}';
+    }
 }
 
 
