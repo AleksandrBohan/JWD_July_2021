@@ -20,7 +20,7 @@ public class TaxiStationApp {
 
     private Car[] smallCars = new Car[3];
 
-    void createExecutiveCars() {
+   public void createExecutiveCars() {
         executiveCars[0] = new ExecutiveCar("Audi A6", 8, 8000, 2.7,
                 180, "diesel");
 
@@ -32,7 +32,7 @@ public class TaxiStationApp {
 
     }
 
-    void createMediumCars() {
+    public void createMediumCars() {
         mediumCars[0] = new MediumCar("Volkswagen Golf 5", 5, 4900, 1.6,
                 116, "benzine");
 
@@ -44,7 +44,7 @@ public class TaxiStationApp {
 
     }
 
-    void createSmallCars() {
+    public void createSmallCars() {
         smallCars[0] = new SmallCar("Renault Logan", 10, 5900, 1.6,
                 102, "benzine");
 
@@ -56,7 +56,7 @@ public class TaxiStationApp {
 
     }
 
-    void chooseCar(int typeNumber, Car[] cars) {
+    public void chooseCar(int typeNumber, Car[] cars) {
         if (typeNumber == 1) {
             carList.add(cars[0]);
         }
@@ -71,7 +71,7 @@ public class TaxiStationApp {
 
     }
 
-    void addSmallCar(List<Car> carList) {
+    public void addSmallCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Renault Logan");
@@ -85,7 +85,7 @@ public class TaxiStationApp {
         chooseCar(smallNumber, smallCars);
     }
 
-    void addMediumCar(List<Car> carList) {
+    public void addMediumCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Volkswagen Golf 5");
@@ -99,7 +99,7 @@ public class TaxiStationApp {
         chooseCar(mediumNumber, mediumCars);
     }
 
-    void addExecutiveCar(List<Car> carList) {
+    public void addExecutiveCar(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Audi A6");
@@ -113,7 +113,7 @@ public class TaxiStationApp {
         chooseCar(executiveNumber, executiveCars);
     }
 
-    void addCarCount() {
+    public void addCarCount() {
         System.out.println("Select the number of cars: ");
 
         Scanner scanner = new Scanner(System.in);
@@ -131,7 +131,7 @@ public class TaxiStationApp {
     }
 
 
-    void addCarType(List<Car> carList) {
+    public void addCarType(List<Car> carList) {
         this.carList = carList;
 
         System.out.println("Choose type of car:\n 1 - Executive car");
@@ -156,7 +156,7 @@ public class TaxiStationApp {
 
     }
 
-    void printTaxiStation() {
+    public void printTaxiStation() {
         for (int i = 0; i < carList.size(); i++) {
 
             System.out.println("\nCar name: " + carList.get(i).getCarName());
