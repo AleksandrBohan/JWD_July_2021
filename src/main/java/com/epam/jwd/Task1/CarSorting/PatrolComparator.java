@@ -1,6 +1,6 @@
 package com.epam.jwd.Task1.CarSorting;
 
-import com.epam.jwd.Task1.Cars.Car;
+import com.epam.jwd.Task1.Car.Car;
 
 import java.util.Comparator;
 
