@@ -117,21 +117,21 @@ public class TaxiStationApp {
         System.out.println(" 2 - Honda Civic");
         System.out.println(" 3 - Ford Focus");
 
-        Scanner mediumScanner = new Scanner(System.in);
-        int minivanNumber = mediumScanner.nextInt();
+        Scanner minivanScanner = new Scanner(System.in);
+        int minivanNumber = minivanScanner.nextInt();
 
         chooseCar(minivanNumber, minivanCars);
     }
 
-    public void addExecutiveCar(List<Car> carList) {
+    public void addHatchbackCar(List<Car> carList) {
         this.carList = carList;
 
-        System.out.println("Choose name of car:\n 1 - Audi A6");
-        System.out.println(" 2 - Volvo S80");
+        System.out.println("Choose name of car:\n 1 - Audi A3");
+        System.out.println(" 2 - Volvo V40");
         System.out.println(" 3 - Honda Legend");
 
-        Scanner executiveScanner = new Scanner(System.in);
-        int hatchbackNumber = executiveScanner.nextInt();
+        Scanner hatchbackScanner = new Scanner(System.in);
+        int hatchbackNumber = hatchbackScanner.nextInt();
 
         chooseCar(hatchbackNumber, hatchbackCars);
     }
@@ -167,11 +167,11 @@ public class TaxiStationApp {
         int typeNumber = scanner.nextInt();
 
         if (typeNumber == 1) {
-            addExecutiveCar(carList);
+            addHatchbackCar(carList);
         }
 
         if (typeNumber == 2) {
-            addMediumCar(carList);
+            addMinivanCar(carList);
         }
 
         if (typeNumber == 3) {
