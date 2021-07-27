@@ -10,7 +10,6 @@ public class SedanCar extends Car {
                         String typeOfPatrol, String specialTrank) {
 
         super(carName, fuelConsumption, carСost, engineVolume, power, typeOfPatrol);
-
         setTrank(specialTrank);
     }
 

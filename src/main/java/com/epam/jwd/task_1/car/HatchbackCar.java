@@ -10,7 +10,6 @@ public class HatchbackCar extends Car {
                         double power, String typeOfPatrol, String backDoor) {
 
         super(carName, fuelConsumption, carСost, engineVolume, power, typeOfPatrol);
-
         setBackDoor(backDoor);
     }
 

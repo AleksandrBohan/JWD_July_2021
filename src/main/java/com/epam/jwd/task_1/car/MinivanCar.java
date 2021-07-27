@@ -1,6 +1,4 @@
-package com.epam.jwd.task_1.Car;
-
-import com.epam.jwd.task_1.car.Car;
+package com.epam.jwd.task_1.car;
 
 import java.util.Objects;
 
@@ -13,7 +11,6 @@ public class MinivanCar extends Car {
 
         super(carName, fuelConsumption, carСost, engineVolume, power, typeOfPatrol);
         setRowsForSeat(rowsForSeat);
-
     }
 
     public int getRowsForSeat() {
