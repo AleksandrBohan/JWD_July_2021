@@ -1,5 +1,6 @@
 package com.epam.jwd.task_1.car_sorting;
 
+
 import com.epam.jwd.task_1.car.Car;
 
 import java.util.Scanner;
@@ -12,7 +13,11 @@ public class CarSorting {
 
     private int moneyAmount;
 
+    private List<Car> cars;
+
     public double getCost(List<Car> cars) {
+        this.cars = cars;
+
         Iterator<Car> iter = cars.iterator();
 
         while (iter.hasNext()) {
@@ -26,12 +31,15 @@ public class CarSorting {
     }
 
     public void sortByFuel(List<Car> cars) {
+        this.cars = cars;
+
         Comparator speedComparator = new PatrolComparator();
         Collections.sort(cars, speedComparator);
     }
 
     public void findCar(List<Car> cars) {
         int counter = 0;
+        this.cars = cars;
 
         System.out.println("Input engine volume: ");
         Scanner scanner = new Scanner(System.in);
@@ -45,14 +53,7 @@ public class CarSorting {
             if ((cars.get(i).getEngineVolume() == volume)
                     && cars.get(i).getPower() == power) {
 
-                System.out.println(Car.class.toString());
-                /*System.out.println("Car was found: ");
-                System.out.println("Car name: " + cars.get(i).getCarName());
-                System.out.println("Car power: " + cars.get(i).getPower());
-                System.out.println("Engine volume of car: " + cars.get(i).getEngineVolume());
-                System.out.println("Car cost: " + cars.get(i).getCost());
-                System.out.println("Fuel consumption of car: " + cars.get(i).getFuelConsumption());
-                System.out.println("Type of patrol: " + cars.get(i).getTypeOfPatrol());*/
+                System.out.println(cars.get(i).toString());
 
                 counter++;
 
@@ -67,5 +68,4 @@ public class CarSorting {
     }
 
 }
-
 

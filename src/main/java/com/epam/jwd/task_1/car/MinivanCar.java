@@ -40,7 +40,7 @@ public class MinivanCar extends Car {
 
     @Override
     public String toString() {
-        return "MinivanCar{" +
+        return "MinivanCar{" + super.toString() +
                 "rowsForSeat=" + rowsForSeat +
                 '}';
     }

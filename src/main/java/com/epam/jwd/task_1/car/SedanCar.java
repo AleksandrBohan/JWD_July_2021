@@ -38,7 +38,7 @@ public class SedanCar extends Car {
 
     @Override
     public String toString() {
-        return "SedanCar{" +
+        return "SedanCar{" + super.toString() +
                 "specialTrank='" + specialTrank + '\'' +
                 '}';
     }

@@ -1,6 +1,4 @@
-package com.epam.jwd.Task1.Cars;
-
-import com.epam.jwd.task_1.car.Car;
+package com.epam.jwd.task_1.car;
 
 import java.util.Objects;
 
@@ -25,6 +23,26 @@ public class HatchbackCar extends Car {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        HatchbackCar that = (HatchbackCar) o;
+        return Objects.equals(backDoor, that.backDoor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), backDoor);
+    }
+
+    @Override
+    public String toString() {
+        return "HatchbackCar{" + super.toString() +
+                "backDoor='" + backDoor + '\'' +
+                '}';
+    }
 }
 
 
