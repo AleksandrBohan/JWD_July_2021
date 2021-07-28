@@ -17,7 +17,7 @@ public class SedanCar extends Car {
         return specialTrank;
     }
 
-    public void setTrank(String trank) {
+    public void setTrank(String specialTrank) {
         this.specialTrank = specialTrank;
     }
 

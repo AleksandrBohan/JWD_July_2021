@@ -86,12 +86,16 @@ public class TaxiStationApp {
             carList.add(cars[0]);
         }
 
-        if (typeNumber == 2) {
+        else if (typeNumber == 2) {
             carList.add(cars[1]);
         }
 
-        if (typeNumber == 3) {
+        else if (typeNumber == 3) {
             carList.add(cars[2]);
+        }
+
+        else {
+            System.out.println("Wrong input!!!");
         }
 
     }
@@ -170,12 +174,16 @@ public class TaxiStationApp {
             addHatchbackCar(carList);
         }
 
-        if (typeNumber == 2) {
+        else if (typeNumber == 2) {
             addMinivanCar(carList);
         }
 
-        if (typeNumber == 3) {
+        else if (typeNumber == 3) {
             addSedanCar(carList);
+        }
+
+        else {
+            System.out.println("Wrong input!!!");
         }
 
     }
