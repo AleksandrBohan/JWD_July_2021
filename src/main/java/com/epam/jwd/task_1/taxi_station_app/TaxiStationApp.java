@@ -6,21 +6,27 @@ import com.epam.jwd.task_1.car.SedanCar;
 import com.epam.jwd.task_1.car_sorting.CarSorting;
 import com.epam.jwd.task_1.car.Car;
 
+
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class TaxiStationApp {
 
+    private int carCount;
+
+    private int typeNumber;
+
     private int sizeOfCars = 3;
 
     private List<Car> carList = new ArrayList<>();
 
-    private Car[] hatchbackCars = new Car[sizeOfCars];
+    private Car[] hatchbackCars = new HatchbackCar[sizeOfCars];
 
-    private Car[] minivanCars = new Car[sizeOfCars];
+    private Car[] minivanCars = new MinivanCar[sizeOfCars];
 
-    private Car[] sedanCars = new Car[sizeOfCars];
+    private Car[] sedanCars = new SedanCar[sizeOfCars];
 
     public void createFirstCars(int carsNumber) {
 
@@ -63,16 +69,21 @@ public class TaxiStationApp {
 
     public void createCars() {
         for (int i = 0; i < sizeOfCars; i++) {
+
             switch (i) {
+
                 case 0:
                     createFirstCars(i);
                     break;
+
                 case 1:
                     createSecondCars(i);
                     break;
+
                 case 2:
                     createThirdCars(i);
                     break;
+
                 default:
                     System.out.println("Car hasn't found!");
                     break;
@@ -101,6 +112,7 @@ public class TaxiStationApp {
     }
 
     public void addSedanCar(List<Car> carList) {
+        int sedanNumber;
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Renault Logan");
@@ -108,13 +120,21 @@ public class TaxiStationApp {
         System.out.println(" 3 - Kia Rio");
 
         Scanner sedanScanner = new Scanner(System.in);
-        int sedanNumber = sedanScanner.nextInt();
+
+        try {
+            sedanNumber = sedanScanner.nextInt();
+            chooseCar(sedanNumber, sedanCars);
+        } catch (InputMismatchException exception){
+            System.err.println("Incorrect type");
+            System.exit(1);
+        }
 
 
-        chooseCar(sedanNumber, sedanCars);
+
     }
 
     public void addMinivanCar(List<Car> carList) {
+        int minivanNumber;
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Volkswagen Golf 5");
@@ -122,12 +142,18 @@ public class TaxiStationApp {
         System.out.println(" 3 - Ford Focus");
 
         Scanner minivanScanner = new Scanner(System.in);
-        int minivanNumber = minivanScanner.nextInt();
 
-        chooseCar(minivanNumber, minivanCars);
+        try {
+            minivanNumber = minivanScanner.nextInt();
+            chooseCar(minivanNumber, minivanCars);
+        } catch (InputMismatchException exception){
+            System.err.println("Incorrect type");
+            System.exit(1);
+        }
     }
 
     public void addHatchbackCar(List<Car> carList) {
+        int hatchbackNumber;
         this.carList = carList;
 
         System.out.println("Choose name of car:\n 1 - Audi A3");
@@ -135,9 +161,15 @@ public class TaxiStationApp {
         System.out.println(" 3 - Honda Legend");
 
         Scanner hatchbackScanner = new Scanner(System.in);
-        int hatchbackNumber = hatchbackScanner.nextInt();
 
-        chooseCar(hatchbackNumber, hatchbackCars);
+        try {
+            hatchbackNumber = hatchbackScanner.nextInt();
+            chooseCar(hatchbackNumber, hatchbackCars);
+        } catch (InputMismatchException exception){
+            System.err.println("Incorrect type");
+            System.exit(1);
+        }
+
     }
 
     public void addCarCount() {
@@ -145,7 +177,15 @@ public class TaxiStationApp {
         createCars();
 
         Scanner scanner = new Scanner(System.in);
-        int carCount = scanner.nextInt();
+
+
+        try {
+            carCount = scanner.nextInt();
+
+        } catch (InputMismatchException exception){
+            System.err.println("Incorrect type");
+            System.exit(1);
+        }
 
         for (int i = 0; i < carCount; i++) {
             addCarType(carList);
@@ -160,6 +200,7 @@ public class TaxiStationApp {
 
 
     public void addCarType(List<Car> carList) {
+
         this.carList = carList;
 
         System.out.println("Choose type of car:\n 1 - Hatchback car");
@@ -168,7 +209,13 @@ public class TaxiStationApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        int typeNumber = scanner.nextInt();
+        try {
+            typeNumber = scanner.nextInt();
+
+        } catch (InputMismatchException exception){
+            System.err.println("Incorrect type");
+            System.exit(1);
+        }
 
         if (typeNumber == 1) {
             addHatchbackCar(carList);
